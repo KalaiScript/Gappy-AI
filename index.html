@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FounderOS — AI Chief of Staff</title>
+  <meta name="description" content="FounderOS is an AI-powered operating system for startup founders.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <div class="app-layout" id="appLayout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-emblem"><div class="logo-hex">⚡</div><div class="logo-pulse"></div></div>
+        <div class="logo-text-wrap">
+          <span class="logo-main">FounderOS</span>
+          <span class="logo-sub">v2.0.1 &nbsp;●&nbsp; ACTIVE</span>
+        </div>
+      </div>
+      <div class="sidebar-mission">
+        <div class="mission-label">ACTIVE MISSION</div>
+        <div class="mission-name" id="sidebarMission">Launch AI Resume Builder</div>
+        <div class="mission-progress-bar"><div class="mission-progress-fill" id="sidebarProgress" style="width:68%"></div></div>
+        <div class="mission-meta">
+          <span class="mission-pct" id="sidebarPct">68%</span>
+          <span class="mission-days" id="sidebarDays">7 days left</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">OPERATIONS</div>
+        <a href="#dashboard" class="nav-item active" data-route="dashboard" id="nav-dashboard"><span class="nav-icon">⌂</span><span class="nav-label">Dashboard</span><span class="nav-glow"></span></a>
+        <a href="#goal" class="nav-item" data-route="goal" id="nav-goal"><span class="nav-icon">◈</span><span class="nav-label">Goal Creator</span></a>
+        <a href="#planner" class="nav-item" data-route="planner" id="nav-planner"><span class="nav-icon">⊞</span><span class="nav-label">AI Planner</span></a>
+        <a href="#tasks" class="nav-item" data-route="tasks" id="nav-tasks"><span class="nav-icon">◻</span><span class="nav-label">Task Board</span><span class="nav-badge" id="taskBadge">18</span></a>
+        <div class="nav-section-label">AI MODULES</div>
+        <a href="#documents" class="nav-item" data-route="documents" id="nav-documents"><span class="nav-icon">≡</span><span class="nav-label">Documents</span></a>
+        <a href="#marketing" class="nav-item" data-route="marketing" id="nav-marketing"><span class="nav-icon">◉</span><span class="nav-label">Marketing</span></a>
+        <a href="#team" class="nav-item" data-route="team" id="nav-team"><span class="nav-icon">◈</span><span class="nav-label">Team</span></a>
+        <div class="nav-section-label">INTELLIGENCE</div>
+        <a href="#analytics" class="nav-item" data-route="analytics" id="nav-analytics"><span class="nav-icon">▦</span><span class="nav-label">Analytics</span></a>
+        <a href="#risk" class="nav-item" data-route="risk" id="nav-risk"><span class="nav-icon">⚠</span><span class="nav-label">Risk Detector</span><span class="nav-badge danger" id="riskBadge">2</span></a>
+        <a href="#agents" class="nav-item" data-route="agents" id="nav-agents"><span class="nav-icon">◈</span><span class="nav-label">AI Agents</span><span class="nav-badge success">6</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sys-status"><span class="sys-dot"></span><span class="sys-label">All Systems Active</span></div>
+        <div class="sys-version">Lemma SDK v3.2 &nbsp;|&nbsp; 6 Agents Running</div>
+      </div>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Sidebar">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="breadcrumb">
+            <span class="bc-root">FounderOS</span>
+            <span class="bc-sep">›</span>
+            <span class="bc-current" id="bcCurrent">Dashboard</span>
+          </div>
+        </div>
+        <div class="topbar-center">
+          <button class="cmd-trigger" id="cmdPaletteBtn" title="Ctrl+K">
+            <span class="cmd-prompt-text">founder.ai@os:~$</span>
+            <span class="cmd-placeholder">Type a command... &nbsp;<kbd>Ctrl+K</kbd></span>
+          </button>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-stat">
+            <div class="mini-prog-bar"><div class="mini-prog-fill" style="width:68%"></div></div>
+            <span class="mini-prog-val">68%</span>
+          </div>
+          <div class="topbar-chip deadline"><span>⏱</span><span>7 Days</span></div>
+          <div class="topbar-chip risk-low"><span class="pulse-dot"></span><span>LOW RISK</span></div>
+          <div class="topbar-clock" id="topbarClock">--:--:--</div>
+        </div>
+      </header>
+
+      <div class="loading-screen" id="loadingScreen">
+        <div class="loading-inner">
+          <div class="loading-logo"><span class="loading-icon">⚡</span><span class="loading-text">FounderOS</span></div>
+          <div class="loading-bar-wrap"><div class="loading-bar" id="loadingBar"></div></div>
+          <div class="loading-status" id="loadingStatus">Initializing AI Chief of Staff...</div>
+        </div>
+      </div>
+
+      <main class="content-area" id="contentArea"></main>
+    </div>
+  </div>
+
+  <div class="cmd-overlay" id="cmdOverlay">
+    <div class="cmd-palette">
+      <div class="cmd-header">
+        <span class="cmd-prompt">founder.ai@os:~$</span>
+        <input type="text" class="cmd-input" id="cmdInput" placeholder="Tell FounderOS what to do..." autocomplete="off" spellcheck="false">
+        <button class="cmd-esc" id="cmdClose">ESC</button>
+      </div>
+      <div class="cmd-body" id="cmdBody">
+        <div class="cmd-output-area" id="cmdOutput" style="display:none"></div>
+        <div class="cmd-suggestions" id="cmdSuggestions">
+          <div class="cmd-suggest-label">QUICK COMMANDS</div>
+          <div class="cmd-suggest-grid">
+            <button class="cmd-suggest-btn" data-cmd="launch new startup">◈ launch new startup</button>
+            <button class="cmd-suggest-btn" data-cmd="generate PRD document">≡ generate PRD document</button>
+            <button class="cmd-suggest-btn" data-cmd="create marketing campaign">◉ create marketing campaign</button>
+            <button class="cmd-suggest-btn" data-cmd="scan for project risks">⚠ scan for project risks</button>
+            <button class="cmd-suggest-btn" data-cmd="show analytics">▦ show analytics</button>
+            <button class="cmd-suggest-btn" data-cmd="show team standup">⌂ show team standup</button>
+          </div>
+        </div>
+      </div>
+      <div class="cmd-footer">
+        <span><kbd>Enter</kbd> Execute</span>
+        <span><kbd>Esc</kbd> Close</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="modules/dashboard.js"></script>
+  <script src="modules/goal.js"></script>
+  <script src="modules/planner.js"></script>
+  <script src="modules/tasks.js"></script>
+  <script src="modules/documents.js"></script>
+  <script src="modules/marketing.js"></script>
+  <script src="modules/team.js"></script>
+  <script src="modules/analytics.js"></script>
+  <script src="modules/risk.js"></script>
+  <script src="modules/agents.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
