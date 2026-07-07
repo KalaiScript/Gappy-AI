@@ -23,7 +23,7 @@ window.AgentsModule = {
             <div class="agent-card">
               <div class="agent-header">
                 <span class="agent-badge-status agent-status-${agent.status}">${agent.status.toUpperCase()}</span>
-                <span style="font-size: 14px;">🤖</span>
+                <div style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; overflow: hidden;"><lottie-player src="https://assets8.lottiefiles.com/packages/lf20_myejio3g.json" background="transparent" speed="1" style="width: 36px; height: 36px;" loop autoplay></lottie-player></div>
               </div>
               <div class="agent-title">${agent.name.toUpperCase()}</div>
               <div style="font-size: 11px; color:var(--accent-cyan); font-family:var(--font-mono); margin-bottom: 8px;">Role: ${agent.role}</div>

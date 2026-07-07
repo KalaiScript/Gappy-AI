@@ -123,6 +123,7 @@ window.DashboardModule = {
               <div class="panel-title">◈ QUICK LAUNCH</div>
             </div>
             <div style="display:flex; flex-direction:column; gap: 10px;">
+              <div style="display: flex; justify-content: center; margin-bottom: 12px;"><lottie-player src="https://assets9.lottiefiles.com/packages/lf20_qp11g9.json" background="transparent" speed="0.8" style="width: 80px; height: 80px;" loop autoplay></lottie-player></div>
               <a href="#goal" class="btn btn-primary" style="font-size: 9px;">[Create Goal]</a>
               <a href="#documents" class="btn" style="font-size: 9px;">[Generate PRD]</a>
               <a href="#marketing" class="btn" style="font-size: 9px;">[Launch Campaign]</a>

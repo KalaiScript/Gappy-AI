@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Lottie Player -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <body>
   <div class="scanlines" aria-hidden="true"></div>
@@ -17,7 +19,7 @@
   <div class="app-layout" id="appLayout">
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-logo">
-        <div class="logo-emblem"><div class="logo-hex">⚡</div><div class="logo-pulse"></div></div>
+        <div class="logo-emblem" style="display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: none; border: none; background: transparent;"><lottie-player src="https://assets10.lottiefiles.com/packages/lf20_gdgq3i1i.json" background="transparent" speed="1" style="width: 32px; height: 32px;" loop autoplay></lottie-player></div>
         <div class="logo-text-wrap">
           <span class="logo-main">FounderOS</span>
           <span class="logo-sub">v2.0.1 &nbsp;●&nbsp; ACTIVE</span>
@@ -84,7 +86,7 @@
 
       <div class="loading-screen" id="loadingScreen">
         <div class="loading-inner">
-          <div class="loading-logo"><span class="loading-icon">⚡</span><span class="loading-text">FounderOS</span></div>
+          <div class="loading-logo" style="display:flex; flex-direction:column; align-items:center; gap:15px; margin-bottom: 20px;"><lottie-player src="https://assets10.lottiefiles.com/packages/lf20_gdgq3i1i.json" background="transparent" speed="1.5" style="width: 100px; height: 100px;" loop autoplay></lottie-player><span class="loading-text">FounderOS</span></div>
           <div class="loading-bar-wrap"><div class="loading-bar" id="loadingBar"></div></div>
           <div class="loading-status" id="loadingStatus">Initializing AI Chief of Staff...</div>
         </div>

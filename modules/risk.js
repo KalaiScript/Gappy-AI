@@ -36,8 +36,9 @@ window.RiskModule = {
 
         <!-- Risks Details -->
         <div>
-          <div class="panel-header">
+          <div class="panel-header" style="display:flex; justify-content:space-between; align-items:center; padding-top: 0; padding-bottom: 0;">
             <span style="font-family:var(--font-heading); font-size:10px; color:var(--accent-cyan)">DETAILED RISKS LOG</span>
+            <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_vt7g9c.json" background="transparent" speed="0.5" style="width: 32px; height: 32px;" loop autoplay></lottie-player>
           </div>
 
           <div class="risk-list" id="riskListContent">
