@@ -1,6 +1,113 @@
 // FounderOS Global Engine & Routing
 
 window.FounderOS = {
+  // Audio Synthesizer Engine & Theme Selector
+  audioEnabled: true,
+  sfx: {
+    ctx: null,
+    init: function() {
+      if (!this.ctx) {
+        this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    },
+    playKeystroke: function() {
+      if (!window.FounderOS.audioEnabled) return;
+      this.init();
+      const ctx = this.ctx;
+      if (ctx.state === 'suspended') ctx.resume();
+      
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800 + Math.random() * 200, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.05);
+      
+      gain.gain.setValueAtTime(0.04, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.005, ctx.currentTime + 0.05);
+      
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.05);
+    },
+    playTransition: function() {
+      if (!window.FounderOS.audioEnabled) return;
+      this.init();
+      const ctx = this.ctx;
+      if (ctx.state === 'suspended') ctx.resume();
+      
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(300, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(1000, ctx.currentTime + 0.12);
+      
+      gain.gain.setValueAtTime(0.02, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+      
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.12);
+    },
+    playSuccess: function() {
+      if (!window.FounderOS.audioEnabled) return;
+      this.init();
+      const ctx = this.ctx;
+      if (ctx.state === 'suspended') ctx.resume();
+      const now = ctx.currentTime;
+      
+      const playTone = (freq, delay, duration) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + delay);
+        gain.gain.setValueAtTime(0.06, now + delay);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + delay + duration);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now + delay);
+        osc.stop(now + delay + duration);
+      };
+      
+      playTone(523.25, 0, 0.12);     // C5
+      playTone(659.25, 0.06, 0.12);  // E5
+      playTone(783.99, 0.12, 0.25);  // G5
+    },
+    playAlert: function() {
+      if (!window.FounderOS.audioEnabled) return;
+      this.init();
+      const ctx = this.ctx;
+      if (ctx.state === 'suspended') ctx.resume();
+      
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(140, ctx.currentTime);
+      gain.gain.setValueAtTime(0.06, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+      
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.25);
+    }
+  },
+  setTheme: function(themeName) {
+    document.body.className = '';
+    if (themeName !== 'default' && themeName !== 'blue') {
+      document.body.classList.add(`theme-${themeName}`);
+    }
+    const selector = document.getElementById('themeSelector');
+    if (selector) {
+      selector.value = themeName;
+    }
+    this.sfx.playTransition();
+    this.showToast(`Active Theme: ${themeName.toUpperCase()}`, 'info');
+  },
+
   // Global State
   state: {
     mission: "Launch AI Resume Builder",

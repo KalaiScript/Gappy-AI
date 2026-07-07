@@ -24,6 +24,83 @@
   --border-glow: 1px solid rgba(34, 211, 238, 0.2);
 }
 
+/* === MULTI-THEME OVERRIDES === */
+body.theme-matrix {
+  --bg-primary: #020b05;
+  --bg-secondary: #041a0b;
+  --bg-card: #062b12;
+  --bg-card-hover: #083c19;
+  --accent-cyan: #39ff14;
+  --accent-blue: #00ff66;
+  --glow-cyan: 0 0 15px rgba(57, 255, 20, 0.4);
+  --glow-blue: 0 0 15px rgba(0, 255, 102, 0.4);
+  --border-glow: 1px solid rgba(57, 255, 20, 0.2);
+}
+
+body.theme-amber {
+  --bg-primary: #0f0b00;
+  --bg-secondary: #241a00;
+  --bg-card: #382700;
+  --bg-card-hover: #4d3600;
+  --accent-cyan: #ffb000;
+  --accent-blue: #ffcc00;
+  --glow-cyan: 0 0 15px rgba(255, 176, 0, 0.4);
+  --glow-blue: 0 0 15px rgba(255, 204, 0, 0.4);
+  --border-glow: 1px solid rgba(255, 176, 0, 0.2);
+}
+
+body.theme-cyberpunk {
+  --bg-primary: #0f0115;
+  --bg-secondary: #220330;
+  --bg-card: #37064c;
+  --bg-card-hover: #4e0a6b;
+  --accent-cyan: #ff007f;
+  --accent-blue: #bd00ff;
+  --glow-cyan: 0 0 15px rgba(255, 0, 127, 0.4);
+  --glow-blue: 0 0 15px rgba(189, 0, 255, 0.4);
+  --border-glow: 1px solid rgba(255, 0, 127, 0.2);
+}
+
+/* === TOPBAR SELECT & AUDIO TOGGLE CONTROLS === */
+.topbar-select {
+  background: var(--bg-primary);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 4px;
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 8px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.topbar-select:focus, .topbar-select:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.2);
+}
+
+.topbar-audio-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.topbar-audio-btn:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+.topbar-audio-btn.muted {
+  color: var(--accent-red);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
