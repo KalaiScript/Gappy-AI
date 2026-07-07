@@ -98,6 +98,7 @@ window.DocumentsModule = {
       window.FounderOS.showToast("Document copied to clipboard!", "success");
     }).catch(err => {
       window.FounderOS.showToast("Failed to copy document content.", "danger");
+      window.FounderOS.sfx.playAlert();
     });
   },
 
@@ -152,6 +153,7 @@ Our mission '${state.mission}' directly resolves target pain points by deliverin
         this.activeDoc = "custom";
         this.renderLayout(document.getElementById("contentArea"));
         window.FounderOS.showToast("Marketing Strategy Document generated!", "success");
+        window.FounderOS.sfx.playSuccess();
       }
     };
     stream();

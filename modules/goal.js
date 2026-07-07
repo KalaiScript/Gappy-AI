@@ -159,6 +159,7 @@ window.GoalModule = {
     this.saveStepData();
     if (this.currentStep === 0 && !this.answers.title.trim()) {
       window.FounderOS.showToast("Please enter a goal title.", "danger");
+      window.FounderOS.sfx.playAlert();
       return;
     }
     this.currentStep++;
@@ -274,6 +275,7 @@ Designed and deployed via FounderOS. Stay tuned!`;
         ];
 
         window.FounderOS.showToast("Mission Roadmap and PRD generated successfully!", "success");
+        window.FounderOS.sfx.playSuccess();
 
         setTimeout(() => {
           window.location.hash = "planner";

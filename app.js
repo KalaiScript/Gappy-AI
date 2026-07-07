@@ -312,6 +312,7 @@ FounderOS Team`
     };
 
     const routeChange = () => {
+      window.FounderOS.sfx.playTransition();
       const hash = window.location.hash.slice(1) || "dashboard";
       const viewFn = views[hash];
       
@@ -471,10 +472,31 @@ FounderOS Team`
           "Standup ready. Opening Dashboard..."
         ];
         finalRedirect = "dashboard";
+      } else if (cmd.startsWith("theme ") || cmd.startsWith("set theme ")) {
+        const themeName = cmd.replace("set theme ", "").replace("theme ", "").trim();
+        const validThemes = ["default", "blue", "matrix", "green", "amber", "cyberpunk"];
+        const matchedTheme = validThemes.find(t => themeName.includes(t));
+        
+        if (matchedTheme) {
+          const actualTheme = (matchedTheme === "green") ? "matrix" : (matchedTheme === "blue") ? "default" : matchedTheme;
+          lines = [
+            `Loading color matrices for theme '${actualTheme}'...`,
+            "Injecting CSS root override classes...",
+            `Theme successfully set to ${actualTheme.toUpperCase()}.`
+          ];
+          setTimeout(() => {
+            window.FounderOS.setTheme(actualTheme);
+          }, 1500);
+        } else {
+          lines = [
+            `Theme '${themeName}' not recognized.`,
+            "Available themes: default/blue, matrix/green, amber, cyberpunk."
+          ];
+        }
       } else {
         lines = [
           `Command '${cmd}' unrecognized.`,
-          "Available inputs: 'launch new startup', 'generate PRD document', 'create marketing campaign', 'scan for project risks'."
+          "Available inputs: 'launch new startup', 'generate PRD document', 'create marketing campaign', 'scan for project risks', 'theme [neon/matrix/amber/cyberpunk]'."
         ];
       }
 
@@ -557,9 +579,44 @@ FounderOS Team`
       if (d2) d2.textContent = val + " Days";
     });
 
+    // Setup selectors and audio hooks
+    const themeSelect = document.getElementById("themeSelector");
+    if (themeSelect) {
+      themeSelect.addEventListener("change", (e) => {
+        this.setTheme(e.target.value);
+      });
+    }
+    
+    const audioBtn = document.getElementById("audioToggleBtn");
+    if (audioBtn) {
+      audioBtn.addEventListener("click", () => {
+        this.audioEnabled = !this.audioEnabled;
+        audioBtn.textContent = this.audioEnabled ? "🔊" : "🔇";
+        audioBtn.classList.toggle("muted", !this.audioEnabled);
+        if (this.audioEnabled) {
+          this.sfx.playKeystroke();
+        }
+      });
+    }
+
+    // Global mechanical keystroke sound hook
+    document.addEventListener("click", (e) => {
+      if (e.target.closest("button, a, select, input, option, [role='button'], .nav-item, .marketing-tab-btn")) {
+        this.sfx.playKeystroke();
+      }
+    });
+
+    // Keystroke sound hook on keyboard entry
+    document.addEventListener("keydown", (e) => {
+      if (e.target.closest("input, textarea")) {
+        this.sfx.playKeystroke();
+      }
+    });
+
     // Initial alert toast
     setTimeout(() => {
       this.showToast("FounderOS Engine Active. Welcome, Founder.", "info");
+      this.sfx.playSuccess();
     }, 1500);
   }
 };

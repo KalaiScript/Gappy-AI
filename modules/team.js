@@ -138,6 +138,7 @@ window.TeamModule = {
         setTimeout(() => {
           this.renderLayout(document.getElementById("contentArea"));
           window.FounderOS.showToast(`${name}'s blocker has been resolved by Operations Agent.`, "success");
+          window.FounderOS.sfx.playSuccess();
         }, 1000);
       }
     };

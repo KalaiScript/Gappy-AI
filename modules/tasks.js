@@ -175,6 +175,7 @@ window.TasksModule = {
         setTimeout(() => {
           this.renderBoard(document.getElementById("contentArea"));
           window.FounderOS.showToast("Added 3 AI-expanded microtasks to Board!", "success");
+          window.FounderOS.sfx.playSuccess();
           
           const taskBadge = document.getElementById("taskBadge");
           if (taskBadge) {

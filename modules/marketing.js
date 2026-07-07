@@ -171,6 +171,7 @@ FounderOS`
 
         this.showActiveCopy();
         window.FounderOS.showToast("Campaign assets generated for all channels!", "success");
+        window.FounderOS.sfx.playSuccess();
       }
     };
     stream();

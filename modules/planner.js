@@ -84,6 +84,7 @@ window.PlannerModule = {
         setTimeout(stream, 600);
       } else {
         window.FounderOS.showToast("Roadmap timelines optimized!", "success");
+        window.FounderOS.sfx.playSuccess();
       }
     };
     stream();

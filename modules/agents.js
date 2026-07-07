@@ -105,6 +105,7 @@ window.AgentsModule = {
           this.renderLayout(document.getElementById("contentArea"));
         }
         window.FounderOS.showToast(`${name} query finished.`, "success");
+        window.FounderOS.sfx.playSuccess();
       }
     };
     stream();
