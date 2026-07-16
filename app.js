@@ -308,7 +308,8 @@ FounderOS Team`
       team: window.TeamModule,
       analytics: window.AnalyticsModule,
       risk: window.RiskModule,
-      agents: window.AgentsModule
+      agents: window.AgentsModule,
+      budget: window.BudgetModule
     };
 
     const routeChange = () => {
@@ -465,6 +466,13 @@ FounderOS Team`
           "Opening Analytics dashboard..."
         ];
         finalRedirect = "analytics";
+      } else if (cmd.includes("budget") || cmd.includes("burn") || cmd.includes("runway") || cmd.includes("finance")) {
+        lines = [
+          "Connecting to financial datastore...",
+          "Calculating burn rate and runway...",
+          "Opening Budget Tracker..."
+        ];
+        finalRedirect = "budget";
       } else if (cmd.includes("standup")) {
         lines = [
           "Collating developer updates...",
