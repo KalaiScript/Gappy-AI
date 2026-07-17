@@ -11,9 +11,9 @@
   --accent-yellow: #f59e0b;
   --accent-red: #ef4444;
   
-  --font-heading: 'Press Start 2P', monospace;
+  --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-mono: 'Fira Code', monospace;
   
   --glow-blue: 0 0 15px rgba(59, 130, 246, 0.4);
   --glow-cyan: 0 0 15px rgba(34, 211, 238, 0.4);
@@ -221,7 +221,7 @@ body {
 }
 
 .logo-sub {
-  font-size: 8px;
+  font-size: 10px;
   color: var(--accent-green);
   font-family: var(--font-mono);
   margin-top: 4px;
@@ -234,10 +234,13 @@ body {
 }
 
 .mission-label {
-  font-size: 9px;
+  font-size: 11px;
   font-family: var(--font-heading);
   color: var(--accent-cyan);
   margin-bottom: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .mission-name {
@@ -279,10 +282,12 @@ body {
 
 .nav-section-label {
   font-family: var(--font-heading);
-  font-size: 8px;
+  font-size: 10px;
   color: rgba(148, 163, 184, 0.4);
   padding: 12px 12px 8px;
-  letter-spacing: 1px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .nav-item {
