@@ -371,7 +371,7 @@ body {
 }
 
 .sys-version {
-  font-size: 9px;
+  font-size: 11px;
   color: rgba(148, 163, 184, 0.5);
 }
 
@@ -663,7 +663,9 @@ body {
 
 .panel-title {
   font-family: var(--font-heading);
-  font-size: 11px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   color: var(--accent-cyan);
   text-shadow: 0 0 5px rgba(34, 211, 238, 0.3);
   display: flex;
@@ -891,10 +893,13 @@ body {
 }
 
 .cmd-suggest-label {
-  font-size: 9px;
+  font-size: 11px;
   font-family: var(--font-heading);
   color: var(--text-secondary);
   opacity: 0.5;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .cmd-suggest-grid {
@@ -1128,7 +1133,10 @@ body {
 
 .kanban-col-header {
   font-family: var(--font-heading);
-  font-size: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--text-secondary);
   margin-bottom: 16px;
   display: flex;
@@ -1174,7 +1182,7 @@ body {
 
 .task-priority {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 10px;
   padding: 2px 6px;
   border-radius: 4px;
   text-transform: uppercase;
