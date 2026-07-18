@@ -221,9 +221,10 @@ body {
 
 .logo-main {
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 800;
   color: #fff;
-  letter-spacing: 1px;
+  letter-spacing: 0.05em;
   text-shadow: 0 0 5px var(--accent-cyan);
 }
 
@@ -289,10 +290,10 @@ body {
 
 .nav-section-label {
   font-family: var(--font-heading);
-  font-size: 10px;
-  color: rgba(148, 163, 184, 0.4);
+  font-size: 11px;
+  color: rgba(148, 163, 184, 0.65);
   padding: 12px 12px 8px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -303,12 +304,13 @@ body {
   padding: 10px 12px;
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   border-radius: 6px;
   margin-bottom: 4px;
   transition: all 0.2s ease;
   position: relative;
+  letter-spacing: 0.01em;
 }
 
 .nav-icon {
@@ -609,7 +611,8 @@ body {
 
 .loading-logo {
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: 28px;
+  font-weight: 800;
   color: var(--accent-cyan);
   text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
   margin-bottom: 24px;
@@ -617,6 +620,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 12px;
+  letter-spacing: 0.05em;
 }
 
 .loading-bar-wrap {
@@ -1229,7 +1233,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 9px;
+  font-size: 10px;
+  font-weight: 700;
   color: var(--accent-cyan);
   border: 1px solid var(--accent-cyan);
 }
@@ -1448,10 +1453,13 @@ body {
 }
 
 .agent-badge-status {
-  font-size: 8px;
+  font-size: 10px;
   font-family: var(--font-heading);
-  padding: 2px 6px;
+  font-weight: 700;
+  padding: 3px 8px;
   border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .agent-status-idle { background: rgba(255,255,255,0.08); color: var(--text-secondary); }
@@ -1460,9 +1468,11 @@ body {
 
 .agent-title {
   font-family: var(--font-heading);
-  font-size: 9px;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 8px;
+  letter-spacing: 0.03em;
 }
 
 .agent-desc {
@@ -1572,8 +1582,9 @@ body {
   top: 16px;
   right: 16px;
   font-family: var(--font-mono);
-  font-size: 9px;
-  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
   border-radius: 4px;
 }
 
@@ -1715,7 +1726,7 @@ body {
 
 .bsc-label {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   color: var(--text-secondary);
   margin-bottom: 8px;
   letter-spacing: 0.5px;
@@ -1827,8 +1838,9 @@ body {
 
 .bci-over-badge {
   font-family: var(--font-mono);
-  font-size: 8px;
-  padding: 2px 5px;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
   border-radius: 3px;
   background: rgba(239,68,68,0.2);
   color: var(--accent-red);
