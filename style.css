@@ -105,14 +105,21 @@ body.theme-cyberpunk {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 400;
   overflow-x: hidden;
   height: 100vh;
+  letter-spacing: 0.01em;
 }
 
 /* === SCANLINES & NOISE === */
