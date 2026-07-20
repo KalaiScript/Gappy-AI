@@ -32,6 +32,7 @@ It provides a unified command center with 11 intelligent modules, each handling 
 | 🎯 **Goal Creator** | Interactive Q&A wizard that converts a startup idea into a full product roadmap and milestone plan |
 | 📅 **AI Planner** | Week-by-week sprint timeline with AI-generated task sequences and timeline optimization controls |
 | ✅ **Task Board** | Kanban board with AI micro-task expander — breaks down high-level tasks into actionable sub-steps |
+| 🏆 **OKR Tracker** | Set Objectives & Key Results per quarter, track KR progress live, get AI advisor recommendations |
 | 📄 **Documents** | Auto-generates PRDs, Pitch Decks, and Launch Checklists from your mission context |
 | 📣 **Marketing** | Generates platform-specific copy for Twitter/X, LinkedIn, Reddit, and launch email campaigns |
 | 👥 **Team** | Team blocker scanner with Slack Resolver Agents to auto-resolve cross-team dependencies |
@@ -122,6 +123,7 @@ Gappy-AI/
     ├── goal.js             # Goal creation wizard & roadmap generator
     ├── planner.js          # Sprint timeline & AI schedule optimizer
     ├── tasks.js            # Kanban board & AI task expander
+    ├── okr.js              # OKR tracker — objectives, key results & AI advisor
     ├── documents.js        # PRD, Pitch Deck & Launch Checklist generator
     ├── marketing.js        # Multi-platform copy generator
     ├── team.js             # Team management & blocker resolver

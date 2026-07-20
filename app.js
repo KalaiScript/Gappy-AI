@@ -309,7 +309,8 @@ FounderOS Team`
       analytics: window.AnalyticsModule,
       risk: window.RiskModule,
       agents: window.AgentsModule,
-      budget: window.BudgetModule
+      budget: window.BudgetModule,
+      okr: window.OKRModule
     };
 
     const routeChange = () => {
@@ -473,6 +474,13 @@ FounderOS Team`
           "Opening Budget Tracker..."
         ];
         finalRedirect = "budget";
+      } else if (cmd.includes("okr") || cmd.includes("objective") || cmd.includes("key result")) {
+        lines = [
+          "Loading OKR Agent...",
+          "Fetching Q3 objectives and key results...",
+          "Opening OKR Tracker..."
+        ];
+        finalRedirect = "okr";
       } else if (cmd.includes("standup")) {
         lines = [
           "Collating developer updates...",
